@@ -1,0 +1,10 @@
+reset;
+model modele_stochastique.mod;
+data modele_stochastique.dat;
+option solver gurobi;
+solve;
+
+display x;
+display y;
+display r;
+display CoutTotal;
