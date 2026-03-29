@@ -1,16 +1,17 @@
 from amplpy import AMPL
 
 
-def executer_scenarios(scenario):
+def executer_instance(fichier_data):
 
     ampl = AMPL()
 
     ampl.read("modele_stochastique/modele_stochastique.mod")
-    ampl.read_data("modele_stochastique/modele_stochastique.dat")
+    ampl.read_data(f"modele_stochastique/{fichier_data}")
     ampl.set_option("solver", "gurobi")
     ampl.solve()
 
     cout = ampl.get_objective("CoutTotal").value()
+    print(f"\nInstance : {fichier_data}")
     print(f"Fonction objectif : {cout:.2f}")
 
     x_data = ampl.get_variable("x").get_values().to_pandas()
@@ -25,9 +26,7 @@ def executer_scenarios(scenario):
     e_data = ampl.get_variable("e").get_values().to_pandas()
     e_data.index.names = ["succursale", "machine", "scenario"]
 
-    r_data = r_data[r_data.index.get_level_values("scenario") == scenario]
-    y_data = y_data[y_data.index.get_level_values("scenario") == scenario]
-    e_data = e_data[e_data.index.get_level_values("scenario") == scenario]
+    
 
     print("\nRépartition des équipements entre les succursales:")
     repartition = x_data[x_data["x.val"] > 0]

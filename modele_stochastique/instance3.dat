@@ -1,0 +1,77 @@
+set I := A B C D;
+set K := Chariot_elevateur Excavatrice Nacelle;
+set S := faible moyen eleve;
+
+param prob :=
+faible 0.25
+moyen 0.50
+eleve 0.25
+;
+
+param stock :=
+Chariot_elevateur 22
+Excavatrice 18
+Nacelle 30
+;
+
+param cap :=
+A 20
+B 15
+C 18
+D 17
+;
+
+param cout_rupture :=
+Chariot_elevateur 40
+Excavatrice 50
+Nacelle 45
+;
+
+param cout_transport :
+          A         B         C         D :=
+A         0      17.3925   47.3128   40.0406
+B      17.3925      0      31.1127   33.4552
+C      47.3128   31.1127      0      29.6184
+D      40.0406   33.4552   29.6184      0
+;
+
+param demande :=
+[A, Chariot_elevateur, faible] 6
+[A, Excavatrice, faible] 5
+[A, Nacelle, faible] 9
+[B, Chariot_elevateur, faible] 6
+[B, Excavatrice, faible] 5
+[B, Nacelle, faible] 8
+[C, Chariot_elevateur, faible] 3
+[C, Excavatrice, faible] 3
+[C, Nacelle, faible] 4
+[D, Chariot_elevateur, faible] 3
+[D, Excavatrice, faible] 2
+[D, Nacelle, faible] 5
+
+[A, Chariot_elevateur, moyen] 8
+[A, Excavatrice, moyen] 6
+[A, Nacelle, moyen] 12
+[B, Chariot_elevateur, moyen] 8
+[B, Excavatrice, moyen] 6
+[B, Nacelle, moyen] 10
+[C, Chariot_elevateur, moyen] 5
+[C, Excavatrice, moyen] 5
+[C, Nacelle, moyen] 6
+[D, Chariot_elevateur, moyen] 5
+[D, Excavatrice, moyen] 3
+[D, Nacelle, moyen] 7
+
+[A, Chariot_elevateur, eleve] 10
+[A, Excavatrice, eleve] 7
+[A, Nacelle, eleve] 14
+[B, Chariot_elevateur, eleve] 10
+[B, Excavatrice, eleve] 7
+[B, Nacelle, eleve] 12
+[C, Chariot_elevateur, eleve] 6
+[C, Excavatrice, eleve] 6
+[C, Nacelle, eleve] 8
+[D, Chariot_elevateur, eleve] 6
+[D, Excavatrice, eleve] 4
+[D, Nacelle, eleve] 9
+;

@@ -18,6 +18,7 @@ var r {I, K, S} integer >= 0;
 
 var e {I, K, S} integer >= 0;
 
+
 # Fonction objectif
 minimize CoutTotal:
     sum {s in S} prob[s] *
@@ -28,6 +29,7 @@ minimize CoutTotal:
     );
 
 # Contraintes
+
 # Stock total disponible pour chaque type de machine
 subject to StockTotal {k in K}:
     sum {i in I} x[i,k] <= stock[k];
