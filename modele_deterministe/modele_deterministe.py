@@ -1,10 +1,15 @@
 import math
 import pandas as pd
 from gurobipy import Model, GRB, quicksum
-demande_df = pd.read_excel("donnees.xlsx", sheet_name="demande")
-cout_rupture_df = pd.read_excel("donnees.xlsx", sheet_name="cout_rupture")
-stock_df = pd.read_excel("donnees.xlsx", sheet_name="stock")
-capacite_df = pd.read_excel("donnees.xlsx", sheet_name="capacite")
+demande_df = pd.read_excel("modele_deterministe/donnees.xlsx", sheet_name="demande")
+cout_rupture_df = pd.read_excel("modele_deterministe/donnees.xlsx", sheet_name="cout_rupture")
+stock_df = pd.read_excel("modele_deterministe/donnees.xlsx", sheet_name="stock")
+capacite_df = pd.read_excel("modele_deterministe/donnees.xlsx", sheet_name="capacite")
+
+#scenario
+#1 = de base, #2 = forte demande, 3 = déséquilibré
+scenario = 3
+print("scenario:", scenario)
 
 #Modèle
 model = Model("Modele_1")
@@ -23,11 +28,31 @@ for _, row in capacite_df.iterrows():
     pos[i] = (row["Position en X"], row ["Position en Y"])
 
 #Dictionnnaire dik
-d={}
+d_base={}
 for _, row in demande_df.iterrows():
     i = row["Succursales"]
     k = row["Machines"]
-    d[(i, k)] = row["Demande"]
+    d_base[(i, k)] = row["Demande"]
+
+#dictio pour chaque scenario
+d = {}
+
+for (i, k), val in d_base.items():
+
+    #Scenario 1 : de base
+    if scenario == 1:
+        d[(i, k)] = val
+
+    #Scenario 2: forte demande (+30%)
+    elif scenario == 2:
+        d[(i, k)] = val * 1.3
+    
+    #Scenario 3: déséquilibré
+    elif scenario == 3:
+        if i in ["A", "B"]:
+            d[(i, k)] = val * 1.5
+        else:
+            d[(i, k) ] = val * 0.7
 
 print(d)
 
@@ -52,7 +77,7 @@ for i in I:
             + quicksum(y[j, i, k] for j in I if j != i)
             - quicksum(y[i, j, k] for j in I if j != i)
             + r[i, k]
-            == d[(i, k)]
+            >= d[(i, k)]
         )
 #contrainte limite d'envoi
 for i in I:
@@ -117,3 +142,39 @@ model.setObjective(
 
 #resolution
 model.optimize()
+
+
+#imprimer résultats
+if model.status == GRB.OPTIMAL:
+    print("Résultats scénario", scenario)
+    print("\nRépartition des équipements entre les succursales:\n")
+    print(f"{'Succursale':<12}{'Machine':<25}{'Quantité'}")
+
+    for i in I:
+        for k in K:
+            if x[i,k].X > 0:
+                print(f"{i:<12}{k:<25}{int(x[i,k].X)}")
+            
+    print("\nRupture :")
+    rupture_existe = False
+    for i in I:
+        for k in K:
+            if r[i,k].X > 0:
+                print(f"{i:<12}{k:<25}{int(r[i,k].X)}")
+                rupture_existe = True
+    if not rupture_existe:
+        print("Aucune rupture")
+
+    print("\nTransferts :")
+    transfert_existe = False
+    for i in I: 
+        for j in I:
+            for k in K:
+                if i != j and y[i, j, k].X > 0:
+                    print(f"{i} -> {j} ({k}) =", y[i,j,k].X)
+                    transfert_existe = True
+    if not transfert_existe:
+        print("Aucun transfert")
+
+else:
+    print("modèle infaisable")
