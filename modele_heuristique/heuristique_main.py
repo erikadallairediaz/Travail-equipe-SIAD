@@ -1,36 +1,17 @@
-from pathlib import Path
-from minizinc_solver import MiniZincSolver
-from solution import print_solution
+from .probleme_heur import ProblemeHeur
+from .minizinc_solver import MiniZincSolver
 
-BASE_DIR = Path(__file__).resolve().parent
-
-MODEL_PATH = BASE_DIR / "modele_heuristique_lns.mzn"
-SOLVER_NAME = "coin-bc"
-TIME_LIMIT = 60
-
-INSTANCES = [
-    BASE_DIR / "inst_deterministe.dzn",
-    BASE_DIR / "inst_stoch1.dzn",
-    BASE_DIR / "inst_stoch2.dzn"
-]
 
 def main():
-    solver = MiniZincSolver(
-        model_path=str(MODEL_PATH),
-        solver_name=SOLVER_NAME,
-        time_limit=TIME_LIMIT
-    )
+    prob = ProblemeHeur(instance_id=1)
+    solver = MiniZincSolver("coin-bc")
 
-    resultats = []
+    sol = solver.solve(prob)
 
-    for instance in INSTANCES:
-        print(f"\nRésolution de l'instance : {instance}")
+    print("Valeur objectif :", sol.evaluate())
+    print("Solution valide ?", sol.validate())
+    sol.pretty_print()
 
-        sol = solver.solve_dzn(str(instance))
-
-        print_solution(sol, str(instance))
-
-        resultats.append((str(instance), sol["objectif"]))
 
 if __name__ == "__main__":
     main()
