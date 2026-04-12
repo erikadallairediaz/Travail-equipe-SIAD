@@ -1,12 +1,12 @@
-from .probleme import Problem
+from .probleme import Probleme
 
 
-class ProblemeHeur(Problem):
-    def __init__(self, instance_id: int = 1):
+class ProblemeHeur(Probleme):
+    def __init__(self, creation_instance: int = 1):
         super().__init__()
         print("ProblemeHeur::init")
 
-        self.instance_id = instance_id
+        self.creation_instance = creation_instance
 
         self.nI = 4
         self.nK = 3

@@ -38,7 +38,7 @@ class MiniZincSolver(Solver):
         instance["cout_rupture"] = ld.lire_cout_rupture(prob.cout_rupture_path)
         instance["cout_transport"] = ld.lire_transport(prob.cout_transport_path)
         instance["ordre_sources"] = ld.lire_ordre_sources(prob.ordre_sources_path)
-        instance["demande"] = ld.lire_demande(prob.demande_path, prob.instance_id)
+        instance["demande"] = ld.lire_demande(prob.demande_path, prob.creation_instance)
 
         # Résoudre
         result = instance.solve()
