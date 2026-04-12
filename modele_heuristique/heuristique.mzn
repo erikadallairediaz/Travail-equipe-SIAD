@@ -42,6 +42,7 @@ array[I, K, S] of var 0..demande_max: e;
 
 % utilise_source[j,p,k,s] = 1 si la source la plus proche de j
 % est utilisee pour envoyer au moins une machine k dans le scenario s
+% variable binaire
 array[I, P, K, S] of var 0..1: utilise_source;
 
 % contraintes
