@@ -1,3 +1,3 @@
-class Problem:
+class Probleme:
     def __init__(self):
-        print("Problem: :init")
+        print("Probleme: :init")

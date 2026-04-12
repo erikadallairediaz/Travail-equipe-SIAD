@@ -7,9 +7,8 @@ K_list = ["Chariot_elevateur", "Excavatrice", "Nacelle"]
 S_list = ["faible", "moyen", "eleve"]
 
 
-# =========================
-# PROBABILITES
-# =========================
+# FICHIER PROBABILITES
+
 def lire_prob(fichier):
     prob = [0.0] * len(S_list)
 
@@ -23,9 +22,8 @@ def lire_prob(fichier):
     return prob
 
 
-# =========================
-# STOCK
-# =========================
+# FICHIER STOCK
+
 def lire_stock(fichier):
     stock = [0] * len(K_list)
 
@@ -39,9 +37,8 @@ def lire_stock(fichier):
     return stock
 
 
-# =========================
-# CAPACITE
-# =========================
+# FICHIER CAPACITE
+
 def lire_capacite(fichier):
     capacite = [0] * len(I_list)
 
@@ -55,9 +52,8 @@ def lire_capacite(fichier):
     return capacite
 
 
-# =========================
-# COUT RUPTURE
-# =========================
+# FICHIER COUT RUPTURE
+
 def lire_cout_rupture(fichier):
     cout = [0.0] * len(K_list)
 
@@ -71,9 +67,8 @@ def lire_cout_rupture(fichier):
     return cout
 
 
-# =========================
-# COUT TRANSPORT (MATRICE)
-# =========================
+# FICHIER COUT TRANSPORT
+
 def lire_transport(fichier):
     n = len(I_list)
     mat = [[0.0 for _ in range(n)] for _ in range(n)]
@@ -90,9 +85,8 @@ def lire_transport(fichier):
     return mat
 
 
-# =========================
-# ORDRE DES SOURCES
-# =========================
+# FICHIER ORDRE DES SOURCES
+
 def lire_ordre_sources(fichier):
     nI = len(I_list)
     nP = nI - 1
@@ -111,9 +105,8 @@ def lire_ordre_sources(fichier):
     return ordre
 
 
-# =========================
-# DEMANDE (3D)
-# =========================
+# FICHIER DEMANDE
+
 def lire_demande(fichier, instance_id):
     nI = len(I_list)
     nK = len(K_list)

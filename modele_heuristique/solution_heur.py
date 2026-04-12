@@ -21,9 +21,9 @@ class SolutionHeur(Solution):
         return self.cout_total
 
     def validate(self):
-        return self.status in {"OPTIMAL_SOLUTION", "SATISFIED", "ALL_SOLUTIONS"}
+        return self.status in {"OPTIMAL_SOLUTION", "SATISFIED"}
 
-    def pretty_print(self):
+    def print_propre(self):
         print("\n=== SOLUTION ===")
         print(f"Statut : {self.status}")
         print(f"Coût total : {self.cout_total:.4f}")
