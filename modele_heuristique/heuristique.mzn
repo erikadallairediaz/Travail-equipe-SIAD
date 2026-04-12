@@ -1,6 +1,4 @@
-% =========================
-% ENSEMBLES ET PARAMETRES
-% =========================
+% ensembles et paramètres
 
 int: nI;   % nombre de succursales
 int: nK;   % nombre de types de machines
@@ -21,16 +19,14 @@ array[I, I] of float: cout_transport;    % cout de transfert entre succursales
 int: nP = nI - 1;
 set of int: P = 1..nP;
 
-% ordre_sources[j,p] = p-ieme source la plus proche de la destination j
+% ordre_sources[j,p] = source la plus proche de la destination j
 array[I, P] of int: ordre_sources;
 
-% Bornes utiles
+% Bornes
 int: stock_max = max(k in K)(stock[k]);
 int: demande_max = max(i in I, k in K, s in S)(demande[i, k, s]);
 
-% =========================
-% VARIABLES DE DECISION
-% =========================
+% variables
 
 % x[i,k] = allocation initiale de machines k a la succursale i
 array[I, K] of var 0..stock_max: x;
@@ -44,13 +40,11 @@ array[I, K, S] of var 0..demande_max: r;
 % e[i,k,s] = surplus pour la succursale i, machine k, scenario s
 array[I, K, S] of var 0..demande_max: e;
 
-% utilise_source[j,p,k,s] = 1 si la p-ieme source la plus proche de j
+% utilise_source[j,p,k,s] = 1 si la source la plus proche de j
 % est utilisee pour envoyer au moins une machine k dans le scenario s
 array[I, P, K, S] of var 0..1: utilise_source;
 
-% =========================
-% CONTRAINTES
-% =========================
+% contraintes
 
 % 1) Le stock total alloue pour chaque type ne peut pas depasser le stock disponible
 constraint
@@ -87,9 +81,7 @@ forall(i in I, k in K, s in S) (
     = demande[i, k, s]
 );
 
-% =========================
-% CONTRAINTES DE PRIORITE PAR PROXIMITE
-% =========================
+% contrainte de priorite de la plus proche (règle heuristique)
 
 % Liaison entre y et utilise_source
 constraint
@@ -111,9 +103,7 @@ forall(j in I, p in 1..nP-1, k in K, s in S) (
     utilise_source[j, p+1, k, s] <= utilise_source[j, p, k, s]
 );
 
-% =========================
-% FONCTION OBJECTIF
-% =========================
+% fct objectif
 
 var float: CoutTotal =
     sum(s in S)(
@@ -127,9 +117,7 @@ var float: CoutTotal =
 
 solve minimize CoutTotal;
 
-% =========================
-% AFFICHAGE
-% =========================
+% affichage clair
 
 output [
 
