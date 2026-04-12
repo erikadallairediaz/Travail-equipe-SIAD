@@ -1,61 +1,62 @@
-from minizinc import Instance, Model, Solver, Status
-import datetime
+from minizinc import Model, Instance, Solver as MznSolver
+
+from .solver import Solver
+from . import lire_donnees as ld
+from .solution_heur import SolutionHeur
 
 
-class MiniZincSolver:
+class MiniZincSolver(Solver):
+    def __init__(self, solver_name: str = "coin-bc"):
+        super().__init__()
+        print("MiniZincSolver::init")
+        self.solver_name = solver_name
 
-    def __init__(self, model_path, solver_name="coin-bc", time_limit=60):
-        self.model_path = model_path
-        self.solver = Solver.lookup(solver_name)
-        self.time_limit = time_limit
+    def solve(self, prob=None):
+        if prob is None:
+            raise ValueError("Un objet problème doit être fourni au solveur.")
 
-    def solve_dzn(self, dzn_path):
-        model = Model(self.model_path)
-        model.add_file(dzn_path)
+        print("MiniZincSolver::solve")
 
-        instance = Instance(self.solver, model)
+        # Charger le modèle MiniZinc
+        model = Model(prob.model_path)
 
-        result = instance.solve(
-            timeout=datetime.timedelta(seconds=self.time_limit)
+        # Choisir le solveur MiniZinc
+        mzn_solver = MznSolver.lookup(self.solver_name)
+
+        # Créer l'instance MiniZinc
+        instance = Instance(mzn_solver, model)
+
+        # Charger les dimensions
+        instance["nI"] = prob.nI
+        instance["nK"] = prob.nK
+        instance["nS"] = prob.nS
+
+        # Charger les données depuis les CSV
+        instance["prob"] = ld.lire_prob(prob.prob_path)
+        instance["stock"] = ld.lire_stock(prob.stock_path)
+        instance["capacite"] = ld.lire_capacite(prob.capacite_path)
+        instance["cout_rupture"] = ld.lire_cout_rupture(prob.cout_rupture_path)
+        instance["cout_transport"] = ld.lire_transport(prob.cout_transport_path)
+        instance["ordre_sources"] = ld.lire_ordre_sources(prob.ordre_sources_path)
+        instance["demande"] = ld.lire_demande(prob.demande_path, prob.instance_id)
+
+        # Résoudre
+        result = instance.solve()
+
+        # Récupérer les résultats
+        x = result["x"] if "x" in result.solution.__dict__ else None
+        y = result["y"] if "y" in result.solution.__dict__ else None
+        r = result["r"] if "r" in result.solution.__dict__ else None
+        e = result["e"] if "e" in result.solution.__dict__ else None
+
+        cout_total = result.objective
+        status = str(result.status)
+
+        return SolutionHeur(
+            x=x,
+            y=y,
+            r=r,
+            e=e,
+            cout_total=cout_total,
+            status=status
         )
-
-        return self.format_result(result)
-
-    def format_result(self, result):
-        sol = {
-            "status": str(result.status),
-            "objectif": None,
-            "x": None,
-            "r": None,
-            "e": None,
-            "y": None
-        }
-
-        if result.status in [Status.SATISFIED, Status.OPTIMAL_SOLUTION]:
-            for var in ["x", "r", "e", "y"]:
-                try:
-                    sol[var] = result[var]
-                except Exception:
-                    pass
-
-            # 1) objectif officiel du solveur
-            try:
-                sol["objectif"] = result.objective
-            except Exception:
-                pass
-
-            # 2) variable du modèle
-            if sol["objectif"] is None:
-                try:
-                    sol["objectif"] = result["CoutTotal"]
-                except Exception:
-                    pass
-
-            # 3) attribut de solution
-            if sol["objectif"] is None:
-                try:
-                    sol["objectif"] = result.solution.CoutTotal
-                except Exception:
-                    pass
-
-        return sol
