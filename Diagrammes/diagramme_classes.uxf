@@ -1,0 +1,17 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>330</x><y>90</y><w>210</w><h>130</h></coordinates><panel_attributes>MiniZincSolver
+--
+- model_path : str
+- solver : Solver
+- time_limit : int
+--
++ solver_dzn(dzn_path:str) : dict
++ format_result(result) :dict
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>90</y><w>210</w><h>150</h></coordinates><panel_attributes>ModeleStochastique
+--
+- fichier_mod : str
+- solveur : str
+- ampl : AMPL
+--
++ charger(fichier_data: str)
++ resoudre()
++ get_resultats() : dict</panel_attributes><additional_attributes></additional_attributes></element></diagram>

@@ -1,0 +1,63 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>0</y><w>170</w><h>1170</h></coordinates><panel_attributes>Utilisateur
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>0</y><w>180</w><h>1170</h></coordinates><panel_attributes>main
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>0</y><w>170</w><h>1170</h></coordinates><panel_attributes>Modèle 
+Stochastique
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>0</y><w>170</w><h>1170</h></coordinates><panel_attributes>Modèle 
+Déterministe
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>0</y><w>170</w><h>1170</h></coordinates><panel_attributes>
+Modèle 
+Heuristique
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>70</x><y>60</y><w>40</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>15;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>120</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>320</y><w>690</w><h>20</h></coordinates><panel_attributes>
+bg=red
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>150</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>250</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>410</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>510</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>610</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>790</y><w>690</w><h>20</h></coordinates><panel_attributes>
+bg=red
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>720</y><w>30</w><h>90</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>200</x><y>850</y><w>130</w><h>110</h></coordinates><panel_attributes>Encore une
+instance?
+bg=blue
+type=decision</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>800</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>880</y><w>90</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;70;20</additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>940</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>1040</y><w>110</w><h>30</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;90;10</additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>70</x><y>1130</y><w>20</w><h>20</h></coordinates><panel_attributes>type=initial</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>70</x><y>1060</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>230</y><w>90</w><h>690</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>70;10;10;10;10;670</additional_attributes></element><element><id>Text</id><coordinates><x>180</x><y>870</y><w>110</w><h>90</h></coordinates><panel_attributes>Oui
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>260</x><y>960</y><w>110</w><h>90</h></coordinates><panel_attributes>Non
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLSpecialState</id><coordinates><x>70</x><y>50</y><w>20</w><h>20</h></coordinates><panel_attributes>type=initial</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>330</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>330</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>410</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>510</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>610</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>720</y><w>30</w><h>90</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>330</y><w>30</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>410</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>510</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>610</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>760</x><y>720</y><w>30</w><h>90</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLState</id><coordinates><x>30</x><y>100</y><w>100</w><h>60</h></coordinates><panel_attributes>Sélectionner
+ les approches
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>210</x><y>110</y><w>100</w><h>50</h></coordinates><panel_attributes>Lire les fichiers
+d'instances
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>200</x><y>210</y><w>100</w><h>50</h></coordinates><panel_attributes>Sélectionner
+une instances
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>380</x><y>370</y><w>100</w><h>50</h></coordinates><panel_attributes>Lire le modèle 
+AMPL (.dat, .mod)
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>380</x><y>470</y><w>100</w><h>50</h></coordinates><panel_attributes>Appeler Gurobi
+via AMPL
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>380</x><y>570</y><w>100</w><h>50</h></coordinates><panel_attributes>Extraire x, y, 
+r et e en pandas
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>380</x><y>680</y><w>100</w><h>50</h></coordinates><panel_attributes>Afficher résultats
+ et CoutTotal
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>550</x><y>370</y><w>100</w><h>50</h></coordinates><panel_attributes>Lire les données 
+Excel (Panda)
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>550</x><y>470</y><w>100</w><h>50</h></coordinates><panel_attributes>Construire le 
+modèle gurobipy
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>550</x><y>570</y><w>100</w><h>50</h></coordinates><panel_attributes>Résoudre avec 
+gurobi
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>550</x><y>680</y><w>100</w><h>50</h></coordinates><panel_attributes>Afficher x, y, r 
+et CoutTotal
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>720</x><y>370</y><w>100</w><h>50</h></coordinates><panel_attributes>Lire le modèle
+MiniZinc (.Mzn)
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>720</x><y>470</y><w>100</w><h>50</h></coordinates><panel_attributes>Charger 
+l'instance
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>720</x><y>570</y><w>100</w><h>50</h></coordinates><panel_attributes>Résoudre 
+avec LNS
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>720</x><y>680</y><w>100</w><h>50</h></coordinates><panel_attributes>Afficher 
+solution
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>210</x><y>1020</y><w>100</w><h>50</h></coordinates><panel_attributes>Comparer 
+les approches
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>30</x><y>1020</y><w>100</w><h>50</h></coordinates><panel_attributes>Visualiser 
+les résultats
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>
