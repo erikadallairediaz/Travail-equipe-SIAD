@@ -1,6 +1,6 @@
-nI = 4;
-nK = 3;
-nS = 3;
+nI = 4; % 4 succursales
+nK = 3; %3 machines
+nS = 3; %3 scenarios
 
 % Ordre retenu :
 % I = 1..4 = A, B, C, D
@@ -13,7 +13,7 @@ stock = [22, 18, 30];
 
 capacite = [20, 15, 18, 17];
 
-cout_rupture = [1000.0, 1000.0, 1000.0];
+cout_rupture = [1000.0, 1000.0, 1000.0]; % très hauts pour plus de transferts
 
 cout_transport =
 [| 0.0,     17.3925, 47.3128, 40.0406

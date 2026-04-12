@@ -3,14 +3,14 @@ from .minizinc_solver import MiniZincSolver
 
 
 def main():
-    prob = ProblemeHeur(instance_id=1)
+    prob = ProblemeHeur(creation_instance=1)
     solver = MiniZincSolver("coin-bc")
 
     sol = solver.solve(prob)
 
-    print("Valeur objectif :", sol.evaluate())
+    print("Valeur fct objectif :", sol.evaluate())
     print("Solution valide ?", sol.validate())
-    sol.pretty_print()
+    sol.print_propre()
 
 
 if __name__ == "__main__":
