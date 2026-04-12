@@ -1,0 +1,44 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>ModeleDeterministe
+--
+- scenario : int
+- model
+- demande_df
+- cout_rupture_df
+- stock_df
+- capacite_df
+- I
+- K
+- pos
+- d
+- p
+- s
+- cap
+- dist
+- c
+- x
+- y
+- r
+--
++ initialiser_ensembles()
++ initialiser_parametres()
++ creer_variables()
++ ajouter_contraintes()
++ definir_objectif()
++ resoudre()
++ afficher_resultats()
+</help_text><element><id>UMLClass</id><coordinates><x>200</x><y>30</y><w>420</w><h>230</h></coordinates><panel_attributes>ModeleDeterministe
+--
+- scenario : int
+- model
+- demande_df
+- cout_rupture_df
+- stock_df
+- capacite_df
+--
++ initialiser_ensembles()
++ initialiser_parametres()
++ creer_variables()
++ ajouter_contraintes()
++ definir_objectif()
++ resoudre()
++ afficher_resultats()</panel_attributes><additional_attributes></additional_attributes></element></diagram>
