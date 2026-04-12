@@ -1,7 +1,6 @@
 <diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLPackage</id><coordinates><x>44</x><y>58</y><w>660</w><h>480</h></coordinates><panel_attributes>Travail-equipe-SIAD
 --
 
-bg=gray
 fg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>74</x><y>108</y><w>140</w><h>70</h></coordinates><panel_attributes>donnee
 --
 donnes.xlsx
@@ -44,9 +43,9 @@ fg=red</panel_attributes><additional_attributes></additional_attributes></elemen
 instance1.dat
 instance2.dat
 instance3.dat
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>474</x><y>328</y><w>140</w><h>70</h></coordinates><panel_attributes>instances
+bg=white</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>474</x><y>328</y><w>140</w><h>70</h></coordinates><panel_attributes>instances
 --
 inst_deterministe.dzn
 inst_stoch1.dzn
 inst_stoch2.dzn
-bg=orange</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+bg=owhite</panel_attributes><additional_attributes></additional_attributes></element></diagram>

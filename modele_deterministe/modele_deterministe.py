@@ -146,6 +146,7 @@ class ModeleDeterministe:
     # Résolution
     def resoudre(self):
         self.model.optimize()
+        print(f"Temps de résolution : {self.model.Runtime:.4f} secondes")
 
     # Affichage
     def afficher_resultats(self):
@@ -186,6 +187,6 @@ class ModeleDeterministe:
             print("modèle infaisable")
             
 if __name__ == "__main__":
-    modele = ModeleDeterministe(scenario=3)
+    modele = ModeleDeterministe(scenario=2)
     modele.resoudre()
     modele.afficher_resultats()
