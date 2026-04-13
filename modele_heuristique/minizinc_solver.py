@@ -1,8 +1,8 @@
 from minizinc import Model, Instance, Solver as MznSolver
 
-from .solver import Solver
-from . import lire_donnees as ld
-from .solution_heur import SolutionHeur
+from solver import Solver
+import lire_donnees as ld
+from solution_heur import SolutionHeur
 
 
 class MiniZincSolver(Solver):

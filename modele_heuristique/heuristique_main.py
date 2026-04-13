@@ -1,5 +1,5 @@
-from .probleme_heur import ProblemeHeur 
-from .minizinc_solver import MiniZincSolver
+from probleme_heur import ProblemeHeur 
+from minizinc_solver import MiniZincSolver
 import time
 
 

@@ -1,4 +1,4 @@
-from .probleme import Probleme
+from probleme import Probleme
 
 
 class ProblemeHeur(Probleme):

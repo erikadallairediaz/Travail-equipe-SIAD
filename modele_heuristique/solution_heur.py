@@ -1,4 +1,4 @@
-from .solution import Solution
+from solution import Solution
 
 
 class SolutionHeur(Solution):
