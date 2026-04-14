@@ -1,12 +1,9 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>330</x><y>90</y><w>210</w><h>130</h></coordinates><panel_attributes>MiniZincSolver
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>190</x><y>370</y><w>210</w><h>90</h></coordinates><panel_attributes>MiniZincSolver
 --
-- model_path : str
-- solver : Solver
-- time_limit : int
+- solver_name : str
 --
-+ solver_dzn(dzn_path:str) : dict
-+ format_result(result) :dict
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>90</y><w>210</w><h>150</h></coordinates><panel_attributes>ModeleStochastique
++ __init__(solver_name:str"coin-bc")
++ solve(prob=None) : SolutionHeur</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>20</y><w>210</w><h>150</h></coordinates><panel_attributes>ModeleStochastique
 --
 - fichier_mod : str
 - solveur : str
@@ -14,4 +11,54 @@
 --
 + charger(fichier_data: str)
 + resoudre()
-+ get_resultats() : dict</panel_attributes><additional_attributes></additional_attributes></element></diagram>
++ get_resultats() : dict</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>370</y><w>210</w><h>250</h></coordinates><panel_attributes>ProblemeHeur
+--
+- creation_instance : int
+- nI : int
+- nK : int
+- nS : int
+- model_path : str
+- prob_path : str
+- stock_path : str
+-capacite_path : str
+-cout_rupture_path : str
+- cout_transport_path : str
+- ordre_sources_path : str
+- demande_path : str
+--
++ __init__(creation_instance:int=1)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>230</y><w>210</w><h>90</h></coordinates><panel_attributes>Solver
+--
+
+--
++__init__()
++solve(prob=None)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>240</y><w>210</w><h>70</h></coordinates><panel_attributes>Probleme
+--
+
+--
++__init__()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>610</x><y>300</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>310</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>850</x><y>230</y><w>210</w><h>90</h></coordinates><panel_attributes>Solution
+--
+
+--
++__init__()
++ evaluate()
++ validate()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>380</y><w>400</w><h>310</h></coordinates><panel_attributes>SolutionHeur
+--
+- x : array[I] [ K]
+-y : array[I] [I] [K] [S]
+- r : array[I] [K] [S]
+- e : array [I] [K] [S]
+- cout_total : float
+-status : str
+- machines : list[str]
+- succursales : list[str]
+-scenarios : list[str]
+--
++__init__((x:int[I][K]=None, y:int[I][I][K][S]=None, r:int[I][K][S]=None, 
+e:int[I][K][S]=None, cout_total:float=None, status:str=None)
++ evaluate() : float
++validate() : bool
++print_propre() 
+- _print_x()
+- _print_r()
+- _print_e()
+- _print_nonzero_tranfsferts()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>310</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>260</y><w>140</w><h>170</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>120;10;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>450</y><w>500</w><h>250</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>480;230;13;227;10;10</additional_attributes></element><element><id>Text</id><coordinates><x>410</x><y>320</y><w>100</w><h>70</h></coordinates><panel_attributes>Utilise</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>390</x><y>650</y><w>100</w><h>70</h></coordinates><panel_attributes>Crée</panel_attributes><additional_attributes></additional_attributes></element></diagram>
