@@ -1,0 +1,11 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLState</id><coordinates><x>640</x><y>320</y><w>140</w><h>40</h></coordinates><panel_attributes>solveur_deterministe.py
+bg=pink</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>330</x><y>320</y><w>160</w><h>40</h></coordinates><panel_attributes>probleme_deterministe.py
+bg=pink</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>650</x><y>210</y><w>100</w><h>40</h></coordinates><panel_attributes>Fichier Excel
+bg=pink</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>630</x><y>440</y><w>160</w><h>40</h></coordinates><panel_attributes>solution_deterministe.py
+bg=pink</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLState</id><coordinates><x>890</x><y>320</y><w>190</w><h>40</h></coordinates><panel_attributes>main_deterministe.py
+bg=pink</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>220</y><w>270</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+lit les données</panel_attributes><additional_attributes>10;100;250;10</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>320</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+construit le modèle</panel_attributes><additional_attributes>160;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>700</x><y>350</y><w>70</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
+génère</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>770</x><y>320</y><w>140</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+appelle</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>350</y><w>230</w><h>130</h></coordinates><panel_attributes>lt=&lt;-
+affiche</panel_attributes><additional_attributes>10;110;210;10</additional_attributes></element></diagram>
