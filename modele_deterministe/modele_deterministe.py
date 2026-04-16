@@ -27,8 +27,19 @@ class ModeleDeterministe:
     # ENSEMBLES
 
     def initialiser_ensembles(self):
-        self.I = self.demande_df["Succursales"].unique()
+        toutes_succursales = sorted(self.demande_df["Succursales"].unique())
+
+        if self.scenario == 1:
+            self.I = toutes_succursales[:4]   # A à D
+        elif self.scenario == 2:
+            self.I = toutes_succursales[:9]   # A à I
+        elif self.scenario == 3:
+            self.I = toutes_succursales       # A à N
+
         self.K = self.demande_df["Machines"].unique()
+
+        print("Succursales :", self.I)
+        print("Machines :", self.K)
         print("Succursales :", self.I)
         print("Machines :", self.K)
 
@@ -41,24 +52,20 @@ class ModeleDeterministe:
         self.pos = {
             row["Succursales"]: (row["Position en X"], row["Position en Y"])
             for _, row in self.capacite_df.iterrows()
+            if row["Succursales"] in self.I
         }
 
         # demande de base
         d_base = {
             (row["Succursales"], row["Machines"]): row["Demande"]
             for _, row in self.demande_df.iterrows()
+            if row["Succursales"] in self.I
         }
 
         # scénario
-        self.d = {}
-        for (i, k), val in d_base.items():
-            if self.scenario == 1:
-                self.d[(i, k)] = val
-            elif self.scenario == 2:
-                self.d[(i, k)] = val * 1.3
-            elif self.scenario == 3:
-                self.d[(i, k)] = val * 1.5 if i in ["A", "B"] else val * 0.7
-
+        self.d = d_base
+        
+            
         # coût rupture
         self.p = {
             row["Type"]: row["Cout de rupture"]
@@ -66,15 +73,28 @@ class ModeleDeterministe:
         }
 
         # stock
-        self.s = {
+   # stock de base
+        s_base = {
             row["Type"]: row["Quantite"]
             for _, row in self.stock_df.iterrows()
         }
+
+        # ajustement selon scénario
+        self.s = {}
+
+        for k, val in s_base.items():
+            if self.scenario == 1:
+                self.s[k] = val
+            elif self.scenario == 2:
+                self.s[k] = val * 2
+            elif self.scenario == 3:
+                self.s[k] = val * 3
 
         # capacité
         self.cap = {
             row["Succursales"]: row["Capacite"]
             for _, row in self.capacite_df.iterrows()
+            if row["Succursales"] in self.I
         }
 
         # distances + coûts
@@ -182,11 +202,11 @@ class ModeleDeterministe:
                             transfert_existe = True
             if not transfert_existe:
                 print("Aucun transfert")
-
+            print(f"Coût total : {self.model.objVal:.2f} $")
         else:
             print("modèle infaisable")
             
 if __name__ == "__main__":
-    modele = ModeleDeterministe(scenario=2)
+    modele = ModeleDeterministe(scenario=3)
     modele.resoudre()
     modele.afficher_resultats()
