@@ -22,7 +22,6 @@ set of int: P = 1..nP;
 % ordre_sources[j,p] = source la plus proche de la destination j
 array[I, P] of int: ordre_sources;
 
-% Bornes
 int: stock_max = max(k in K)(stock[k]);
 int: demande_max = max(i in I, k in K, s in S)(demande[i, k, s]);
 
