@@ -1,0 +1,41 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>180</x><y>0</y><w>138</w><h>228</h></coordinates><panel_attributes>ModeleDeterministe
+--
+scenario : int
+model : Model
+demande_df : DataFrame
+cout_rupture_df : DataFrame
+stock_df : DataFrame
+capacite_df : DataFrame
+I : array
+K : array
+pos : dict
+d : dict
+s : dict
+cap : dict
+dist : dict
+c : dict
+x, y, r : tupledict
+--
++ __init__(scenario : int)
+- initialiser_ensembles()
+- initialiser_parametres()
+- creer_variables()
+- ajouter_contraintes()
+- definir_objectif()
++ resoudre()
++ afficher_resultats()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>36</y><w>108</w><h>66</h></coordinates><panel_attributes>run_deterministe
+--
+&lt;&lt;script&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>354</x><y>36</y><w>108</w><h>66</h></coordinates><panel_attributes>model
+--
+&lt;&lt;gurobipy&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>132</x><y>54</y><w>60</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>312</x><y>54</y><w>48</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>36</x><y>240</y><w>138</w><h>84</h></coordinates><panel_attributes>TestModeleDeterministe
+--
+- modele : ModeleDeterministe
+--
++ setUp()
++ test_solution_existe()
++ test_stock_respectee()
++ test_capacite_respectee()
++ test_pas_de_transfert_vers_soi()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>228</x><y>246</y><w>108</w><h>66</h></coordinates><panel_attributes>TestCase
+--
+&lt;&lt;unittest&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>168</x><y>270</y><w>72</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element></diagram>

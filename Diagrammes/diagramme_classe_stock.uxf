@@ -1,0 +1,71 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>108</x><y>27</y><w>189</w><h>279</h></coordinates><panel_attributes>ProblemeStochastique
+--
+instance_id : int
+dossier_csv : str
+I : list
+K : list
+S : list
+prob : dict
+stock : dict
+capacite : dict
+demande : dict
+--
++ __init__(instance_id : int, dossier_csv: str)
+- _path(nom: str) : str
+- _charger()
+- _lire_prob(fichier: str)
+- _lire_stock(fichier: str)
+- _lire_capacite(fichier: str)
+- _lire_cout_rupture(fichier:str)
+- _lire_cout_transport(fichier:str)
+- _lire_demande(fichier: str)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>387</x><y>27</y><w>360</w><h>108</h></coordinates><panel_attributes>SolveurStochastique
+--
+modele_path : str
+solveur_ampl : str = "gurobi"
+--
++ __init__(modele_path:str, solveur_ampl: str)
++ resoudre(probleme : ProblemeStochastique) : SolutionStochastique
+- extraire(ampl : AMPL, nom : str) : dict
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>387</x><y>198</y><w>342</w><h>198</h></coordinates><panel_attributes>SolutionStochastique
+--
+probleme : ProblemeStochastique
+x : dict
+y : dict
+r : dict
+e : dict
+cout_total : float
+statut : str = "unknow"
+--
++ __init__(probleme: ProblemeStochastique, x: dict, y: dict, r: dict, 
+e: dict, cout_total:float, statut:str)
++ validate() : bool
++ evaluate() : float
++ afficher()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>81</y><w>117</w><h>36</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+&lt; résout</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>252</y><w>117</w><h>45</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=
+&lt; s'applique à</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>549</x><y>126</y><w>90</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+Retourne &gt;</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>117</x><y>369</y><w>207</w><h>126</h></coordinates><panel_attributes>TestSolutionStochastique
+--
+- prob : ProblemeStoch
+- sol : SolutionStoch
+--
++ SetUp()
++ test_validate_positif()
++ test_evaluate_egal_solveur()
++ test_statut_optimal()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>387</x><y>423</y><w>126</w><h>54</h></coordinates><panel_attributes>TestCase
+--
+&lt;&lt;unittest&gt;&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>315</x><y>450</y><w>90</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>80;10;10;10</additional_attributes></element></diagram>

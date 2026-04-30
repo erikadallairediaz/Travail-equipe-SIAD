@@ -1,0 +1,90 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>224</x><y>24</y><w>144</w><h>80</h></coordinates><panel_attributes>Probleme
+--
+&lt;&lt;abstract&gt;&gt;
+--
+instance_id : int
+I, K, S : list
+--
++ __init__()
+- _charger()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>424</x><y>24</y><w>176</w><h>72</h></coordinates><panel_attributes>Solver
+--
+&lt;&lt;abstract&gt;&gt;
+--
+--
++ __init__()
++ resoudre(prob) : Solution</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>656</x><y>16</y><w>144</w><h>80</h></coordinates><panel_attributes>Solution
+--
+&lt;&lt;abstract&gt;&gt;
+--
+--
++ __init__()
++ evaluate() : float
++ validate() : bool
++ afficher()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>176</x><y>144</y><w>216</w><h>336</h></coordinates><panel_attributes>modele_deterministe</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>184</x><y>176</y><w>144</w><h>72</h></coordinates><panel_attributes>ProblemeDeterministe
+--
+scenario : int
+--
++ __init__(scenario : int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>184</x><y>272</y><w>192</w><h>64</h></coordinates><panel_attributes>SolveurDeterministe
+--
+solveur : str = "gurobi"
+--
++ __init__()
++ resoudre(prob) : SolutionDeterministe</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>184</x><y>368</y><w>168</w><h>88</h></coordinates><panel_attributes>SolutionDeterministe
+--
+x, y, r : tupledict
+--
++ __init__()
++ evaluate() : float
++ validate() : bool
++ afficher_resultats()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>424</x><y>144</y><w>264</w><h>344</h></coordinates><panel_attributes>modele_stochastique</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>712</x><y>144</y><w>288</w><h>344</h></coordinates><panel_attributes>modele_heuristique</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>176</y><w>240</w><h>80</h></coordinates><panel_attributes>ProblemeStochastique
+--
+--
++ __init__(instance_id : int)
+- _charger()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>272</y><w>240</w><h>80</h></coordinates><panel_attributes>SolveurStochastique
+--
+modele_path : str
+solveur_ampl : str
+--
++ __init__(modele_path, solveur_ampl)
++ resoudre(prob) : SolutionStochastique</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>368</y><w>240</w><h>104</h></coordinates><panel_attributes>SolutionStochastique
+--
+x, y, r, e : dict
+cout_total : float
+--
++ __init__()
++ evaluate() : float
++ validate() : bool
++ afficher_resultats()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>736</x><y>176</y><w>160</w><h>104</h></coordinates><panel_attributes>ProblemeHeuristique
+--
+creation_instance : int
+nI, nK, nS : int
+--
++ __init__(creation_instance)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>736</x><y>296</y><w>240</w><h>64</h></coordinates><panel_attributes>MiniZincSolveur
+--
+solver_name : str
+--
++ __init__(solver_name : str)
++ resoudre(prob) : SolutionHeuristique</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>736</x><y>376</y><w>240</w><h>104</h></coordinates><panel_attributes>SolutionHeuristique
+--
+x, y, r, e : array
+cout_total : float
+--
++ __init__()
++ evaluate() : float
++ validate() : bool
++ afficher_resultats()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>96</y><w>24</w><h>96</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>344</x><y>88</y><w>112</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>120;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>344</x><y>88</y><w>392</w><h>320</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>470;10;10;380</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>0</x><y>0</y><w>152</w><h>136</h></coordinates><panel_attributes>donnee
+--
+prob.csv
+stock.csv
+capacité.csv
+cout_transport.csv
+cout_rupture.csv
+instances_det.csv
+instances_stoch.csv
+instances_heur.csv
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>144</x><y>72</y><w>96</w><h>32</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>40</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+résout
+</panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>Relation</id><coordinates><x>592</x><y>40</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+retourne
+</panel_attributes><additional_attributes>80;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>344</x><y>96</y><w>256</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;300;80</additional_attributes></element><element><id>Relation</id><coordinates><x>568</x><y>88</y><w>24</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>88</y><w>168</w><h>296</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>190;10;10;350</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>80</y><w>440</w><h>112</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;530;120</additional_attributes></element><element><id>Relation</id><coordinates><x>576</x><y>88</y><w>256</w><h>224</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;300;260</additional_attributes></element><element><id>Relation</id><coordinates><x>744</x><y>88</y><w>64</w><h>304</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;60;360</additional_attributes></element></diagram>
